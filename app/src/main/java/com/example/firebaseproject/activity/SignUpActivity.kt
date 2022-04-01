@@ -47,16 +47,16 @@ class SignUpActivity : BaseActivity() {
     }
 
     fun firebaseSignUp(email: String, password: String) {
-        //showLoading(this)
+        showLoading(this)
         AuthManager.signUp(email, password, object : AuthHandler {
             override fun onSuccess() {
                 toast("Signed up successfully")
-                //dismissLoading()
+                dismissLoading()
                 callMainActivity(context)
             }
 
             override fun onError(exception: Exception?) {
-                //dismissLoading()
+                dismissLoading()
                 toast("Sign up failed")
             }
         })
